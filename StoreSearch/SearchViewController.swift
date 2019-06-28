@@ -28,6 +28,8 @@ class SearchViewController: UIViewController {
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.searchResultCell)
         cellNib = UINib(nibName: TableView.CellIdentifiers.nothingFoundCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableView.CellIdentifiers.nothingFoundCell)
+        
+        searchBar.barTintColor = UIColor(red: 20/225, green: 160/225, blue: 160/225, alpha: 1)
     }
 }
 
