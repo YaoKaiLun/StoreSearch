@@ -10,6 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     var searchResults = [SearchResult]()
@@ -39,9 +40,16 @@ class SearchViewController: UIViewController {
         searchBar.barTintColor = UIColor(red: 20/225, green: 160/225, blue: 160/225, alpha: 1)
     }
     
-    func iTunesUrl(searchText: String) -> URL {
+    func iTunesUrl(searchText: String, category: Int) -> URL {
+        let kind: String
+        switch category {
+            case 1: kind = "musicTrack"
+            case 2: kind = "software"
+            case 3: kind = "ebook"
+            default: kind = ""
+        }
         let encodedText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=500", encodedText)
+        let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200&entity=\(kind)", encodedText)
         let url = URL(string: urlString)
         return url!
     }
@@ -70,21 +78,19 @@ class SearchViewController: UIViewController {
         ))
         present(alert, animated: true, completion: nil)
     }
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
+    
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        performSearch()
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func performSearch() {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
             hasSearch = true
             searchResults = []
             isLoading = true
             tableView.reloadData()
-            let url = iTunesUrl(searchText: searchBar.text!)
+            let url = iTunesUrl(searchText: searchBar.text!, category: segmentedControl.selectedSegmentIndex)
             
             let session = URLSession.shared
             dataTask?.cancel()
@@ -111,6 +117,16 @@ extension SearchViewController: UISearchBarDelegate {
         }
         
         searchBar.resignFirstResponder()
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func position(for bar: UIBarPositioning) -> UIBarPosition {
+        return .topAttached
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        performSearch()
     }
 }
 
