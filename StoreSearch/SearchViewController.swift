@@ -15,6 +15,7 @@ class SearchViewController: UIViewController {
     var searchResults = [SearchResult]()
     var hasSearch = false
     var isLoading = false
+    var dataTask: URLSessionDataTask?
     
     struct TableView {
         struct CellIdentifiers {
@@ -43,16 +44,6 @@ class SearchViewController: UIViewController {
         let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=500", encodedText)
         let url = URL(string: urlString)
         return url!
-    }
-    
-    func performStoreRequest(with url: URL) -> Data? {
-        do {
-            return try Data(contentsOf: url)
-        } catch {
-            print("Download Error: \(error.localizedDescription)")
-            showNetworkError()
-            return nil
-        }
     }
     
     func parse(data: Data) -> [SearchResult] {
@@ -95,19 +86,28 @@ extension SearchViewController: UISearchBarDelegate {
             tableView.reloadData()
             let url = iTunesUrl(searchText: searchBar.text!)
             
-            let queue = DispatchQueue.global()
-            queue.async {
-                if let data = self.performStoreRequest(with: url) {
-                    self.searchResults = self.parse(data: data)
-                    self.searchResults.sort(by: { result1, result2 in
-                        result1.name.localizedStandardCompare(result2.name) == .orderedAscending
-                    })
-                    DispatchQueue.main.async {
-                        self.isLoading = false
-                        self.tableView.reloadData()
+            let session = URLSession.shared
+            dataTask?.cancel()
+            dataTask = session.dataTask(with: url) {
+                data, response, error in
+                if let error = error as NSError?, error.code == -999 {
+                    return
+                } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
+                    if let data = data {
+                        self.searchResults = self.parse(data: data)
+                        self.searchResults.sort(by: { result1, result2 in
+                            result1.name.localizedStandardCompare(result2.name) == .orderedAscending
+                        })
+                        DispatchQueue.main.async {
+                            self.isLoading = false
+                            self.tableView.reloadData()
+                        }
                     }
+                } else {
+                    print("Failure! \(response!)")
                 }
             }
+            dataTask?.resume()
         }
         
         searchBar.resignFirstResponder()
