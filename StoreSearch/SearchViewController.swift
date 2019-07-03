@@ -87,11 +87,12 @@ class SearchViewController: UIViewController {
                     if !success {
                         self.showNetworkError()
                     }
+                    self.tableView.reloadData()
                 }
             )
+            tableView.reloadData()
+            searchBar.resignFirstResponder()
         }
-        tableView.reloadData()
-        searchBar.resignFirstResponder()
     }
     
     func showLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
