@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  StoreSearch
+
+  Created by kailun on 2019/7/4.
+  Copyright © 2019 kailun.com. All rights reserved.
+*/
+
+CFBundleDisplayName = "好物商店";
