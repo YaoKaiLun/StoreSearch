@@ -93,12 +93,13 @@
 		FFD1AF7622B52B7100DCB3C7 /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
-				FF1DD2AB22CD83A90019A857 /* en.lproj */,
 				FFD1AF7722B52B7100DCB3C7 /* AppDelegate.swift */,
 				FFD1AF7E22B52B7400DCB3C7 /* Assets.xcassets */,
 				FF1BF65722C88F9F00BB7CE3 /* DetailViewController.swift */,
 				FF1BF65922C8A1BE00BB7CE3 /* DimmingPresentationController.swift */,
+				FF1DD2AB22CD83A90019A857 /* en.lproj */,
 				FFD1AF8322B52B7400DCB3C7 /* Info.plist */,
+				FF3E072722CE4B1B002452E6 /* InfoPlist.strings */,
 				FF2D766222CA3E900013A611 /* LandscapeViewController.swift */,
 				FFD1AF8022B52B7400DCB3C7 /* LaunchScreen.storyboard */,
 				FF7DD86122CCFEE0005B74C7 /* LoadingCell.xib */,
@@ -111,7 +112,6 @@
 				FF1BF64D22C658F000BB7CE3 /* SearchResultCell.xib */,
 				FFD1AF7922B52B7100DCB3C7 /* SearchViewController.swift */,
 				FF1BF65522C8884D00BB7CE3 /* UIImageView+DownloadImage.swift */,
-				FF3E072722CE4B1B002452E6 /* InfoPlist.strings */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
