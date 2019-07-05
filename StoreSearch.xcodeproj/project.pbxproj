@@ -15,6 +15,7 @@
 		FF1BF65A22C8A1BE00BB7CE3 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1BF65922C8A1BE00BB7CE3 /* DimmingPresentationController.swift */; };
 		FF1DD2AA22CD04050019A857 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF1DD2A922CD04050019A857 /* Localizable.strings */; };
 		FF1DD2AE22CD83AA0019A857 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF1DD2AC22CD83A90019A857 /* Localizable.strings */; };
+		FF265EB522CF9F98002DB4CC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF265EB422CF9F97002DB4CC /* GradientView.swift */; };
 		FF2D766322CA3E900013A611 /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2D766222CA3E900013A611 /* LandscapeViewController.swift */; };
 		FF3E072522CE4B1B002452E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF3E072722CE4B1B002452E6 /* InfoPlist.strings */; };
 		FF7DD85F22CCFEE0005B74C7 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7DD86122CCFEE0005B74C7 /* LoadingCell.xib */; };
@@ -38,6 +39,7 @@
 		FF1DD2A922CD04050019A857 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FF1DD2AD22CD83A90019A857 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		FF1DD2AF22CD83C40019A857 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FF265EB422CF9F97002DB4CC /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FF2D766222CA3E900013A611 /* LandscapeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
 		FF3E072622CE4B1B002452E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FF3E072822CE4B25002452E6 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				FF1BF64D22C658F000BB7CE3 /* SearchResultCell.xib */,
 				FFD1AF7922B52B7100DCB3C7 /* SearchViewController.swift */,
 				FF1BF65522C8884D00BB7CE3 /* UIImageView+DownloadImage.swift */,
+				FF265EB422CF9F97002DB4CC /* GradientView.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			files = (
 				FFA5DAF322CABEF0009E17A2 /* Search.swift in Sources */,
 				FFD1AF7A22B52B7100DCB3C7 /* SearchViewController.swift in Sources */,
+				FF265EB522CF9F98002DB4CC /* GradientView.swift in Sources */,
 				FF1BF65A22C8A1BE00BB7CE3 /* DimmingPresentationController.swift in Sources */,
 				FF2D766322CA3E900013A611 /* LandscapeViewController.swift in Sources */,
 				FFD1AF8A22B5E7AE00DCB3C7 /* SearchResult.swift in Sources */,
